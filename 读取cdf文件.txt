@@ -1,0 +1,79 @@
+>>info = cdfinfo('C:\Users\Think\Desktop\IGS_TEC\gps_tec2hr_igs_20031024_v01.cdf')
+
+info = 
+
+              Filename: 'gps_tec2hr_igs_20031024_v01.cdf'
+           FileModDate: '19-May-2019 19:48:45'
+              FileSize: 668582
+                Format: 'CDF'
+         FormatVersion: '3.6.3'
+          FileSettings: [1x1 struct]
+              Subfiles: {}
+             Variables: {43x6 cell}
+      GlobalAttributes: [1x1 struct]
+    VariableAttributes: [1x1 struct]
+
+>> vars = info.Variables
+
+vars = 
+
+    'Epoch'               [1x2 double]    [12]    'epoch'     'T/'      'Full'
+    'tecIGS'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecCOD'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecESA'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecJPL'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecUPC'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecIGR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecCOR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecESR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecJPR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'tecUPR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsIGS'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsCOD'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsESA'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsJPL'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsUPC'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsIGR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsCOR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsESR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsJPR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'rmsUPR'              [1x2 double]    [12]    'single'    'T/TT'    'Full'
+    'IGSnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'CODnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'ESAnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'JPLnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'UPCnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'IGRnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'CORnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'ESRnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'JPRnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'UPRnumStations'      [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'IGSnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'CODnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'ESAnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'JPLnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'UPCnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'IGRnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'CORnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'ESRnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'JPRnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'UPRnumSatellites'    [1x2 double]    [12]    'int16'     'T/'      'Full'
+    'lat'                 [1x2 double]    [ 1]    'single'    'F/T'     'Full'
+    'lon'                 [1x2 double]    [ 1]    'single'    'F/T'     'Full'
+
+>> lat = cdfread('C:\Users\Think\Desktop\IGS_TEC\gps_tec2hr_igs_20031024_v01.cdf','Variable','lat');whos lat
+  Name      Size            Bytes  Class    Attributes
+
+  lat       1x1               396  cell               
+>> y=cell2mat(lat);
+>> x=cell2mat(lon);
+>> z1=tecIGS{1,1};
+>> z2=tecIGS{2,1};
+.
+.
+.
+>> z12=tecIGS{12,1}; %一天十二个图像，每两小时平均
+>> pcolor(x,y,z1);
+
+
+
