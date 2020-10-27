@@ -7,12 +7,12 @@ x = [];
 y = [];
 z = [];
 
-Path = 'D:\DCGAN\IGS_TEC\20140101_0601\';     % ÉèÖÃÊı¾İ´æ·ÅµÄÎÄ¼ş¼ĞÂ·¾¶
-File = dir(fullfile(Path,'*.cdf'));  % ÏÔÊ¾ÎÄ¼ş¼ĞÏÂËùÓĞ·ûºÏºó×ºÃûÎª.cdfÎÄ¼şµÄÍêÕûĞÅÏ¢
-FileNames = {File.name}';            % ÌáÈ¡·ûºÏºó×ºÃûÎª.txtµÄËùÓĞÎÄ¼şµÄÎÄ¼şÃû£¬×ª»»ÎªnĞĞ1ÁĞ
-Length_Names = size(FileNames,1);    % »ñÈ¡ËùÌáÈ¡Êı¾İÎÄ¼şµÄ¸öÊı
-% for k = 1 : Length_Names
-for k = 54 : 90
+Path = 'D:\DCGAN\IGS_TEC\20140101_0601\';     % è®¾ç½®æ•°æ®å­˜æ”¾çš„æ–‡ä»¶å¤¹è·¯å¾„
+File = dir(fullfile(Path,'*.cdf'));  % æ˜¾ç¤ºæ–‡ä»¶å¤¹ä¸‹æ‰€æœ‰ç¬¦åˆåç¼€åä¸º.cdfæ–‡ä»¶çš„å®Œæ•´ä¿¡æ¯
+FileNames = {File.name}';            % æå–ç¬¦åˆåç¼€åä¸º.txtçš„æ‰€æœ‰æ–‡ä»¶çš„æ–‡ä»¶åï¼Œè½¬æ¢ä¸ºnè¡Œ1åˆ—
+Length_Names = size(FileNames,1);    % è·å–æ‰€æå–æ•°æ®æ–‡ä»¶çš„ä¸ªæ•°
+for k = 1 : Length_Names
+% for k = 54 : 90
     dir = strcat(Path, FileNames{k});
 %     dir = 'D:\DCGAN\IGS_TEC\2003\gps_tec2hr_igs_20031024_v01.cdf'
 %     info = cdfinfo(dir);
@@ -22,21 +22,21 @@ for k = 54 : 90
     tecIGS = cdfread(dir,'Variable','tecIGS');
     y=cell2mat(lat);
     x=cell2mat(lon);
-    for i = 1:12 %Á½Ğ¡Ê±Æ½¾ù£¬Ò»Ìì12ÕÅÍ¼
+    for i = 1:12 %ä¸¤å°æ—¶å¹³å‡ï¼Œä¸€å¤©12å¼ å›¾
 %      figure(i);
-         fig(i) = figure('Visible', 'off'); %²»ÏÔÊ¾Í¼Æ¬
+         fig(i) = figure('Visible', 'off'); %ä¸æ˜¾ç¤ºå›¾ç‰‡
          z= tecIGS{i,1};
          img = pcolor(x,y,z);
          set(img, 'LineStyle','none');
          colormap jet;
          set(gca,'xtick',[],'ytick',[],'xcolor','w','ycolor','w');
 
-        %±£´æÍ¼Æ¬
+        %ä¿å­˜å›¾ç‰‡
          dir2 = ['D:\python_projects\data_2014\',num2str(k),'_',num2str(2*i),'.jpg'];
          saveas(gcf,dir2);
          
 
-%         %ĞŞ¸ÄÍ¼Æ¬´óĞ¡
+%         %ä¿®æ”¹å›¾ç‰‡å¤§å°
 %          img1 = imread(dir2);
 %          img2 = imresize(img1,[64,64]);
 %          imwrite(img2,dir2,'jpg');
